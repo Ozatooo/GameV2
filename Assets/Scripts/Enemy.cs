@@ -1,12 +1,48 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float health = 10;
-    public static float scale = 0;
+    [SerializeField] float moveSpeed = 5f;
+    Rigidbody2D rb;
+    Transform target;
+    Vector2 moveDirection;
     private EnemySpawner enemySpawner;
+    private KillCounter killCounter; // Reference to the KillCounter script
+
+    int expAmount = 100;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        killCounter = FindObjectOfType<KillCounter>(); // Find the KillCounter script in the scene
+    }
+
+    private void Start()
+    {
+        target = GameObject.Find("Player").transform;
+        enemySpawner = FindObjectOfType<EnemySpawner>();
+    }
+
+    private void Update()
+    {
+        if (target)
+        {
+            Vector3 direction = (target.position - transform.position).normalized;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            moveDirection = direction;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (target)
+        {
+            rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
+        }
+    }
 
     public float Health
     {
@@ -14,10 +50,8 @@ public class Enemy : MonoBehaviour
         {
             health = value;
 
-            if(health <= 0)
+            if (health <= 0)
             {
-                scale = Random.Range(5, 15);
-                health = scale;
                 Defeated();
             }
         }
@@ -27,31 +61,26 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        enemySpawner = FindObjectOfType<EnemySpawner>();
-    }
+    public float health = 1;
 
-    public void TakeDamage(float damage)
-    {
-        health -= damage;
-        if (health <= 0)
-        {
-            Defeated();
-        }
-    }
-
-    private void Defeated()
+    public void Defeated()
     {
         DropLoot();
         if (enemySpawner != null)
         {
             enemySpawner.EnemyDefeated();
         }
+
+        if (killCounter != null) // Increment kill count if KillCounter script is found
+        {
+            killCounter.IncrementKillCount();
+        }
+        Debug.Log(expAmount);
+        ExperienceManager.Instance.AddExperience(expAmount);
         Destroy(gameObject);
     }
 
-    private void DropLoot()
+    public void DropLoot()
     {
         if (GetComponent<LootBag>() != null)
         {

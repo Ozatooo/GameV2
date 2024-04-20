@@ -15,10 +15,6 @@ GameObject:
   - component: {fileID: 3089014135829128774}
   - component: {fileID: 1574206389592958116}
   - component: {fileID: 7677361279444501481}
-  - component: {fileID: 2519100618376934049}
-  - component: {fileID: 3597683575799989369}
-  - component: {fileID: 1529929151116754445}
-  - component: {fileID: 1290294330690967746}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Enemy
@@ -167,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7dfb7620a2f6264894a5fc47eddc862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 1
 --- !u!95 &1574206389592958116
 Animator:
   serializedVersion: 5
@@ -204,74 +200,3 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &2519100618376934049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5582376182650116251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f09bea7159740245ad76856cef3bacc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 5582376182650116251}
-  maxEnemySpawnOneTime: 2
---- !u!114 &3597683575799989369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5582376182650116251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 753517c383bf316419491c059031fb24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DroppedItemPrefab: {fileID: 2446053656365919376, guid: 0390fed0d062cee49ac5bbf6e5168b88, type: 3}
-  LootPool:
-  - {fileID: 11400000, guid: 997e343046f1bea48b78f460fc3997a8, type: 2}
-  - {fileID: 11400000, guid: 5d1bc8df528214948a8f5cee765de9e3, type: 2}
-  - {fileID: 11400000, guid: 8ab1cb86d1c31bf408a6002071c52dd7, type: 2}
-  - {fileID: 11400000, guid: d82ad3d9e715da14ab06cfead175b6e7, type: 2}
-  - {fileID: 11400000, guid: e9735bfdd6b2d004aaefcf5332be52f7, type: 2}
---- !u!114 &1529929151116754445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5582376182650116251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 753517c383bf316419491c059031fb24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DroppedItemPrefab: {fileID: 2446053656365919376, guid: 0390fed0d062cee49ac5bbf6e5168b88, type: 3}
-  LootPool:
-  - {fileID: 11400000, guid: 997e343046f1bea48b78f460fc3997a8, type: 2}
-  - {fileID: 11400000, guid: 5d1bc8df528214948a8f5cee765de9e3, type: 2}
-  - {fileID: 11400000, guid: 8ab1cb86d1c31bf408a6002071c52dd7, type: 2}
-  - {fileID: 11400000, guid: d82ad3d9e715da14ab06cfead175b6e7, type: 2}
-  - {fileID: 11400000, guid: e9735bfdd6b2d004aaefcf5332be52f7, type: 2}
---- !u!114 &1290294330690967746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5582376182650116251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 753517c383bf316419491c059031fb24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DroppedItemPrefab: {fileID: 2446053656365919376, guid: 0390fed0d062cee49ac5bbf6e5168b88, type: 3}
-  LootPool:
-  - {fileID: 11400000, guid: 997e343046f1bea48b78f460fc3997a8, type: 2}
-  - {fileID: 11400000, guid: 5d1bc8df528214948a8f5cee765de9e3, type: 2}
-  - {fileID: 11400000, guid: 8ab1cb86d1c31bf408a6002071c52dd7, type: 2}
-  - {fileID: 11400000, guid: d82ad3d9e715da14ab06cfead175b6e7, type: 2}
-  - {fileID: 11400000, guid: e9735bfdd6b2d004aaefcf5332be52f7, type: 2}
